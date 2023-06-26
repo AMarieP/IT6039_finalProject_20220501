@@ -22,11 +22,14 @@ class TestBowlingGame(unittest.TestCase):
         self.assertEqual(self.game.score(), 20, "Should be 20")
 
     def testOneSpare(self):
+        '''
+        Test result if there is one spare rolled in the game
+        '''
         self.game.rolls(5)
         self.game.rolls(5)
         self.game.rolls(3)
         self.rollMany(0,17)
-        assert self.game.score() == 16 #Score should be 16
+        self.assertEqual(self.game.score(), 16, "Should be 16")
 
     def testOneSpare(self):
         self.game.roll(10)
