@@ -42,8 +42,11 @@ class TestBowlingGame(unittest.TestCase):
         self.assertEqual(self.game.score(), 24, "Should be 24")
 
     def testPerfectGame(self):
+        '''
+        Test result if player runs a perfect game
+        '''
         self.rollMany(10, 12)
-        assert self.game.score() == 300 #Score should be 300
+        self.assertEqual(self.game.score(), 300, "Should be 300")
 
     def testOneSpare(self):
         self.rollMany(5, 21)
