@@ -15,8 +15,11 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 0 #Score should be 0
 
     def testAllOnes(self):
+        '''
+        Test result if every roll is a one
+        '''
         self.rollMany(1, 20)
-        assert self.game.score() == 20 #Score should be 20
+        self.assertEqual(self.game.score(), 20, "Should be 20")
 
     def testOneSpare(self):
         self.game.rolls(5)
@@ -25,10 +28,10 @@ class TestBowlingGame(unittest.TestCase):
         self.rollMany(0,17)
         assert self.game.score() == 16 #Score should be 16
 
-    def testOneStrike(self):
-        self.game.rolls(10)
-        self.game.rolls(4)
-        self.game.rolls(3)
+    def testOneSpare(self):
+        self.game.roll(10)
+        self.game.roll(4)
+        self.game.roll(3)
         self.rollMany(0, 16)
         assert  self.game.score() == 24 #Score should be 24
 
