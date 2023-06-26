@@ -28,9 +28,9 @@ class TestBowlingGame(unittest.TestCase):
         '''
         Test result if there is one spare rolled in the game
         '''
-        self.game.rolls(5)
-        self.game.rolls(5)
-        self.game.rolls(3)
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(3)
         self.rollMany(0,17)
         self.assertEqual(self.game.score(), 16, "Should be 16")
 
@@ -44,19 +44,19 @@ class TestBowlingGame(unittest.TestCase):
         self.rollMany(0, 16)
         self.assertEqual(self.game.score(), 24, "Should be 24")
 
-    def testPerfectGame(self):
+    def testAllStrike(self):
         '''
-        Test result if player runs a perfect game
+        Test result if player runs a perfect game of all strikes
         '''
         self.rollMany(10, 12)
         self.assertEqual(self.game.score(), 300, "Should be 300")
 
-#TODO: figure out what this is supposed to test - all spare?
-    def testOneSpare(self):
+    def testAllSpare(self):
         '''
+        Test results if player rolls all spares
         '''
         self.rollMany(5, 21)
-        assert self.game.score() == 150 #Score should be 150
+        self.assertEqual(self.game.score(), 150, "Should be 150")
 
     def rollMany(self, pins, rolls): #does the rolls for the tests
         for i in range(rolls):
