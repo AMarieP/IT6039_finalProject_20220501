@@ -10,9 +10,12 @@ class TestBowlingGame(unittest.TestCase):
         self.game = BowlingGame.BowlingGame()
 
     def testGutterGame(self):
+        '''
+        Test a gutter game - a game where every ball gutters and no points are scored. 
+        '''
         for i in range(0, 20):
             self.game.roll(0)
-        assert self.game.score() == 0 #Score should be 0
+        self.assertEqual(self.game.score(), 0, "Should be 0")
 
     def testAllOnes(self):
         '''
@@ -48,7 +51,10 @@ class TestBowlingGame(unittest.TestCase):
         self.rollMany(10, 12)
         self.assertEqual(self.game.score(), 300, "Should be 300")
 
+#TODO: figure out what this is supposed to test - all spare?
     def testOneSpare(self):
+        '''
+        '''
         self.rollMany(5, 21)
         assert self.game.score() == 150 #Score should be 150
 
