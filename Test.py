@@ -18,8 +18,7 @@ class TestBowlingGame(unittest.TestCase):
 
         Returns True if the score from self.game equals zero.
         '''
-        for i in range(0, 20):
-            self.game.roll(0)
+        self.rollMany(0, 20)
         self.assertEqual(self.game.score(), 0, "Should be 0")
 
     def testAllOnes(self):
